@@ -1,4 +1,4 @@
-package day1
+package aoc.day1
 
 class SonarSweep(val measurements: List<String>) {
     fun countIncreases() : Int

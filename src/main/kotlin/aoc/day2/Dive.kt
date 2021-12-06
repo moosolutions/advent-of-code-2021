@@ -1,4 +1,4 @@
-package day2
+package aoc.day2
 
 class Dive(val commands: List<String>) {
 
