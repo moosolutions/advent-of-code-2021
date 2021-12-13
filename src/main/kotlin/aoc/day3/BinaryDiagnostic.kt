@@ -63,16 +63,16 @@ class BinaryDiagnostic(val diagnosticReport: List<String>) {
         val one = filteredDiagnosticReport.filter { it[index].code == 49 }
         val zero = filteredDiagnosticReport.filter { it[index].code == 48 }
 
-        if (zero.count() >= one.count()) {
-            if (zero.count() == 1) {
-                return zero[0]
-            }
-            lastCO2ScrubberItem = getCO2ScrubberRating(index + 1, zero)
-        } else {
+        if (zero.count() > one.count()) {
             if (one.count() == 1) {
                 return one[0]
             }
             lastCO2ScrubberItem = getCO2ScrubberRating(index + 1, one)
+        } else if (zero.count() < one.count() || zero.count() == one.count()) {
+            if (zero.count() == 1) {
+                return zero[0]
+            }
+            lastCO2ScrubberItem = getCO2ScrubberRating(index + 1, zero)
         }
         return lastCO2ScrubberItem
     }
